@@ -1,6 +1,8 @@
 <?php
 
-require_once 'gilded_rose.php';
+use App\Model\GildedRose;
+use App\Model\Item;
+require __DIR__ . '/../../vendor/autoload.php';
 
 echo "OMGHAI!\n";
 

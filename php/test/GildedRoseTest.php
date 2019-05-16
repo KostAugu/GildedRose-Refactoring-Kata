@@ -131,5 +131,79 @@ class GildedRoseTest extends TestCase {
         $this->assertEquals($item[0]->quality, 80);
     }
 
+    /*
+     * Backstage passes to a TAFKAL80ETC concert
+     */
 
+    public function testBackstagePassesUpdate()
+    {
+        $item = [new Item('Backstage passes to a TAFKAL80ETC concert', 15, 15)];
+        $gildedRose = new GildedRose($item);
+        $gildedRose->update_quality();
+        $this->assertEquals($item[0]->sell_in, 14);
+        $this->assertEquals($item[0]->quality, 16);
+    }
+
+    public function testBackstagePassesUpdateWhenSellInLessThanTen()
+    {
+        $item = [new Item('Backstage passes to a TAFKAL80ETC concert', 10, 15)];
+        $gildedRose = new GildedRose($item);
+        $gildedRose->update_quality();
+        $this->assertEquals($item[0]->sell_in, 9);
+        $this->assertEquals($item[0]->quality, 17);
+    }
+
+    public function testBackstagePassesUpdateWhenSellInLessThanFive()
+    {
+        $item = [new Item('Backstage passes to a TAFKAL80ETC concert', 5, 15)];
+        $gildedRose = new GildedRose($item);
+        $gildedRose->update_quality();
+        $this->assertEquals($item[0]->sell_in, 4);
+        $this->assertEquals($item[0]->quality, 18);
+    }
+
+    public function testBackstagePassesUpdateWhenSellInNegative()
+    {
+        $item = [new Item('Backstage passes to a TAFKAL80ETC concert', 0, 15)];
+        $gildedRose = new GildedRose($item);
+        $gildedRose->update_quality();
+        $this->assertEquals($item[0]->sell_in, -1);
+        $this->assertEquals($item[0]->quality, 0);
+    }
+
+    public function testBackstagePassesUpdateWhenSellInNegativeAndQualityZero()
+    {
+        $item = [new Item('Backstage passes to a TAFKAL80ETC concert', -5, 0)];
+        $gildedRose = new GildedRose($item);
+        $gildedRose->update_quality();
+        $this->assertEquals($item[0]->sell_in, -6);
+        $this->assertEquals($item[0]->quality, 0);
+    }
+
+    public function testBackstagePassesUpdateWhenQualityMaximum()
+    {
+        $item = [new Item('Backstage passes to a TAFKAL80ETC concert', 15, 50)];
+        $gildedRose = new GildedRose($item);
+        $gildedRose->update_quality();
+        $this->assertEquals($item[0]->sell_in, 14);
+        $this->assertEquals($item[0]->quality, 50);
+    }
+
+    public function testBackstagePassesUpdateWhenSellInLessThanFiveAndQualityMaximum()
+    {
+        $item = [new Item('Backstage passes to a TAFKAL80ETC concert', 4, 50)];
+        $gildedRose = new GildedRose($item);
+        $gildedRose->update_quality();
+        $this->assertEquals($item[0]->sell_in, 3);
+        $this->assertEquals($item[0]->quality, 50);
+    }
+
+    public function testBackstagePassesUpdateWhenSellInLessThanTenAndQualityMaximum()
+    {
+        $item = [new Item('Backstage passes to a TAFKAL80ETC concert', 9, 50)];
+        $gildedRose = new GildedRose($item);
+        $gildedRose->update_quality();
+        $this->assertEquals($item[0]->sell_in, 8);
+        $this->assertEquals($item[0]->quality, 50);
+    }
 }

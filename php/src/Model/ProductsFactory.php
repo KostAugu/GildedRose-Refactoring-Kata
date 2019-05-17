@@ -21,7 +21,7 @@ class ProductsFactory
                 return new BackstagePass($item);
             case 'Sulfuras, Hand of Ragnaros':
                 return new Sulfuras($item);
-            case 'Conjured':
+            case 'Conjured Mana Cake':
                 return new Conjured($item);
             default:
                 return new Product($item);

@@ -221,7 +221,7 @@ class GildedRoseTest extends TestCase {
  */
     public function testConjuredProductUpdate()
     {
-        $item = [new Item('Conjured', 10, 10)];
+        $item = [new Item('Conjured Mana Cake', 10, 10)];
         $gildedRose = new GildedRose($item);
         $gildedRose->update_quality();
         $this->assertEquals($item[0]->sell_in, 9);
@@ -230,7 +230,7 @@ class GildedRoseTest extends TestCase {
 
     public function testConjuredProductUpdateWhenSellInNegative()
     {
-        $item = [new Item('Conjured', -6, 10)];
+        $item = [new Item('Conjured Mana Cake', -6, 10)];
         $gildedRose = new GildedRose($item);
         $gildedRose->update_quality();
         $this->assertEquals($item[0]->sell_in, -7);
@@ -239,7 +239,7 @@ class GildedRoseTest extends TestCase {
 
     public function testConjuredProductUpdateWhenSellInEnds()
     {
-        $item = [new Item('Conjured', 0, 10)];
+        $item = [new Item('Conjured Mana Cake', 0, 10)];
         $gildedRose = new GildedRose($item);
         $gildedRose->update_quality();
         $this->assertEquals($item[0]->sell_in, -1);
@@ -248,7 +248,7 @@ class GildedRoseTest extends TestCase {
 
     public function testConjuredProductUpdateWhenQualityZero()
     {
-        $item = [new Item('Conjured', 5, 0)];
+        $item = [new Item('Conjured Mana Cake', 5, 0)];
         $gildedRose = new GildedRose($item);
         $gildedRose->update_quality();
         $this->assertEquals($item[0]->sell_in, 4);
@@ -257,7 +257,7 @@ class GildedRoseTest extends TestCase {
 
     public function testConjuredProductUpdateWhenQualityZeroAndSellInNegative()
     {
-        $item = [new Item('Conjured', -5, 0)];
+        $item = [new Item('Conjured Mana Cake', -5, 0)];
         $gildedRose = new GildedRose($item);
         $gildedRose->update_quality();
         $this->assertEquals($item[0]->sell_in, -6);

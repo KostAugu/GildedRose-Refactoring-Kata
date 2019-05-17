@@ -41,17 +41,17 @@ class Product
     /**
      * @return bool
      */
-    public function qualityMoreThanZero(): bool
+    public function qualityMoreThan(int $number): bool
     {
-        return $this->item->quality > 0;
+        return $this->item->quality > $number;
     }
 
     /**
      * @return bool
      */
-    public function qualityMoreThanOne(): bool
+    public function qualityLessThan(int $number): bool
     {
-        return $this->item->quality > 1;
+        return $this->item->quality < $number;
     }
 
     /**
@@ -60,8 +60,8 @@ class Product
     public function getQualityChange(): int
     {
         $qualityChange = 0;
-        if ($this->qualityMoreThanZero()) {
-            if ($this->qualityMoreThanOne() && $this->sellInIsNegative()) {
+        if ($this->qualityMoreThan(0)) {
+            if ($this->qualityMoreThan(1) && $this->sellInIsNegative()) {
                 $qualityChange = -2;
             } else {
                 $qualityChange = -1;

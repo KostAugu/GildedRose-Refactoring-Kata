@@ -13,8 +13,8 @@ class GildedRose {
     function update_quality() {
         foreach ($this->items as $item) {
             $product = ProductsFactory::create($item);
-            $product->changeSellIn();
             $product->changeQuality();
+            $product->changeSellIn();
         }
     }
 }

@@ -33,9 +33,17 @@ class Product
     /**
      * @return bool
      */
-    public function sellInIsNegative(): bool
+    public function sellInIsMoreThan(int $number): bool
     {
-        return $this->item->sell_in < 0;
+        return $this->item->sell_in > $number;
+    }
+
+    /**
+     * @return bool
+     */
+    public function sellInIsLessThan(int $number): bool
+    {
+        return $this->item->sell_in < $number;
     }
 
     /**
@@ -61,7 +69,7 @@ class Product
     {
         $qualityChange = 0;
         if ($this->qualityMoreThan(0)) {
-            if ($this->qualityMoreThan(1) && $this->sellInIsNegative()) {
+            if ($this->qualityMoreThan(1) && $this->sellInIsLessThan(1)) {
                 $qualityChange = -2;
             } else {
                 $qualityChange = -1;

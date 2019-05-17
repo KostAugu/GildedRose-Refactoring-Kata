@@ -13,7 +13,7 @@ class AgedBrie extends Product
     {
         $qualityChange = 0;
         if ($this->qualityLessThan(50)) {
-            if ($this->qualityLessThan(49) && $this->sellInIsNegative()) {
+            if ($this->qualityLessThan(49) && $this->sellInIsLessThan(1)) {
                 $qualityChange = 2;
             } else {
                 $qualityChange = 1;
@@ -21,5 +21,4 @@ class AgedBrie extends Product
         }
         return $qualityChange;
     }
-
 }

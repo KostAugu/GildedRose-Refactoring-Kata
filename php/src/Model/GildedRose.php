@@ -2,15 +2,18 @@
 
 namespace App\Model;
 
-class GildedRose {
+class GildedRose
+{
 
     private $items;
 
-    function __construct($items) {
+    function __construct($items)
+    {
         $this->items = $items;
     }
 
-    function update_quality() {
+    function update_quality()
+    {
         foreach ($this->items as $item) {
             $product = ProductsFactory::create($item);
             $product->changeQuality();

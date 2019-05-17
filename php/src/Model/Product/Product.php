@@ -31,6 +31,7 @@ class Product
     }
 
     /**
+     * @param int $number
      * @return bool
      */
     public function sellInIsMoreThan(int $number): bool
@@ -39,6 +40,7 @@ class Product
     }
 
     /**
+     * @param int $number
      * @return bool
      */
     public function sellInIsLessThan(int $number): bool
@@ -47,6 +49,7 @@ class Product
     }
 
     /**
+     * @param int $number
      * @return bool
      */
     public function qualityMoreThan(int $number): bool
@@ -55,6 +58,7 @@ class Product
     }
 
     /**
+     * @param int $number
      * @return bool
      */
     public function qualityLessThan(int $number): bool

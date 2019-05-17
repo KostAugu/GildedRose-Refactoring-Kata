@@ -13,7 +13,7 @@ class BackstagePass extends Product
     {
         $qualityChange = 0;
         if ($this->qualityLessThan(50) && $this->sellInIsMoreThan(0)) {
-            if($this->sellInIsMoreThan(10)) {
+            if ($this->sellInIsMoreThan(10)) {
                 $qualityChange = 1;
             } elseif ($this->sellInIsLessThan(6)) {
                 $qualityChange = 3;

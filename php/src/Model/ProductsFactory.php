@@ -12,7 +12,11 @@ use App\Model\Product\Sulfuras;
 
 class ProductsFactory
 {
-    public static function create(Item $item)
+    /*
+     * @param Item $item
+     * @return Product
+     */
+    public static function create(Item $item): Product
     {
         switch ($item->name) {
             case 'Aged Brie':

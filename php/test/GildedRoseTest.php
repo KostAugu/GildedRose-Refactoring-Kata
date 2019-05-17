@@ -4,7 +4,8 @@ use PHPUnit\Framework\TestCase;
 use App\Model\GildedRose;
 use App\Model\Item;
 
-class GildedRoseTest extends TestCase {
+class GildedRoseTest extends TestCase
+{
 
     function testFoo()
     {
@@ -217,8 +218,8 @@ class GildedRoseTest extends TestCase {
     }
 
     /*
- * Conjured product
- */
+    * Conjured product
+    */
     public function testConjuredProductUpdate()
     {
         $item = [new Item('Conjured Mana Cake', 10, 10)];

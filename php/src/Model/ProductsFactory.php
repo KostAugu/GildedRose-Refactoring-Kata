@@ -6,6 +6,7 @@ namespace App\Model;
 
 use App\Model\Product\AgedBrie;
 use App\Model\Product\BackstagePass;
+use App\Model\Product\Conjured;
 use App\Model\Product\Product;
 use App\Model\Product\Sulfuras;
 
@@ -20,6 +21,8 @@ class ProductsFactory
                 return new BackstagePass($item);
             case 'Sulfuras, Hand of Ragnaros':
                 return new Sulfuras($item);
+            case 'Conjured':
+                return new Conjured($item);
             default:
                 return new Product($item);
         }

@@ -15,9 +15,9 @@ class GildedRoseTest extends TestCase {
     }
 
     /*
-     * Normal product
+     * Standard product
      */
-    public function testNormalProductUpdate()
+    public function testStandardProductUpdate()
     {
         $item = [new Item('Elixir of the Mongoose', 10, 10)];
         $gildedRose = new GildedRose($item);
@@ -26,7 +26,7 @@ class GildedRoseTest extends TestCase {
         $this->assertEquals($item[0]->quality, 9);
     }
 
-    public function testNormalProductUpdateWhenSellInNegative()
+    public function testStandardProductUpdateWhenSellInNegative()
     {
         $item = [new Item('Elixir of the Mongoose', -6, 10)];
         $gildedRose = new GildedRose($item);
@@ -35,7 +35,7 @@ class GildedRoseTest extends TestCase {
         $this->assertEquals($item[0]->quality, 8);
     }
 
-    public function testNormalProductUpdateWhenSellInEnds()
+    public function testStandardProductUpdateWhenSellInEnds()
     {
         $item = [new Item('Elixir of the Mongoose', 0, 10)];
         $gildedRose = new GildedRose($item);
@@ -44,7 +44,7 @@ class GildedRoseTest extends TestCase {
         $this->assertEquals($item[0]->quality, 8);
     }
 
-    public function testNormalProductUpdateWhenQualityZero()
+    public function testStandardProductUpdateWhenQualityZero()
     {
         $item = [new Item('Elixir of the Mongoose', 5, 0)];
         $gildedRose = new GildedRose($item);
@@ -53,7 +53,7 @@ class GildedRoseTest extends TestCase {
         $this->assertEquals($item[0]->quality, 0);
     }
 
-    public function testNormalProductUpdateWhenQualityZeroAndSellInNegative()
+    public function testStandardProductUpdateWhenQualityZeroAndSellInNegative()
     {
         $item = [new Item('Elixir of the Mongoose', -5, 0)];
         $gildedRose = new GildedRose($item);

@@ -162,6 +162,15 @@ class GildedRoseTest extends TestCase {
         $this->assertEquals($item[0]->quality, 18);
     }
 
+    public function testBackstagePassesUpdateWhenSellInLessThanSix()
+    {
+        $item = [new Item('Backstage passes to a TAFKAL80ETC concert', 6, 15)];
+        $gildedRose = new GildedRose($item);
+        $gildedRose->update_quality();
+        $this->assertEquals($item[0]->sell_in, 5);
+        $this->assertEquals($item[0]->quality, 17);
+    }
+
     public function testBackstagePassesUpdateWhenSellInNegative()
     {
         $item = [new Item('Backstage passes to a TAFKAL80ETC concert', 0, 15)];
@@ -205,5 +214,53 @@ class GildedRoseTest extends TestCase {
         $gildedRose->update_quality();
         $this->assertEquals($item[0]->sell_in, 8);
         $this->assertEquals($item[0]->quality, 50);
+    }
+
+    /*
+ * Conjured product
+ */
+    public function testConjuredProductUpdate()
+    {
+        $item = [new Item('Conjured', 10, 10)];
+        $gildedRose = new GildedRose($item);
+        $gildedRose->update_quality();
+        $this->assertEquals($item[0]->sell_in, 9);
+        $this->assertEquals($item[0]->quality, 8);
+    }
+
+    public function testConjuredProductUpdateWhenSellInNegative()
+    {
+        $item = [new Item('Conjured', -6, 10)];
+        $gildedRose = new GildedRose($item);
+        $gildedRose->update_quality();
+        $this->assertEquals($item[0]->sell_in, -7);
+        $this->assertEquals($item[0]->quality, 6);
+    }
+
+    public function testConjuredProductUpdateWhenSellInEnds()
+    {
+        $item = [new Item('Conjured', 0, 10)];
+        $gildedRose = new GildedRose($item);
+        $gildedRose->update_quality();
+        $this->assertEquals($item[0]->sell_in, -1);
+        $this->assertEquals($item[0]->quality, 6);
+    }
+
+    public function testConjuredProductUpdateWhenQualityZero()
+    {
+        $item = [new Item('Conjured', 5, 0)];
+        $gildedRose = new GildedRose($item);
+        $gildedRose->update_quality();
+        $this->assertEquals($item[0]->sell_in, 4);
+        $this->assertEquals($item[0]->quality, 0);
+    }
+
+    public function testConjuredProductUpdateWhenQualityZeroAndSellInNegative()
+    {
+        $item = [new Item('Conjured', -5, 0)];
+        $gildedRose = new GildedRose($item);
+        $gildedRose->update_quality();
+        $this->assertEquals($item[0]->sell_in, -6);
+        $this->assertEquals($item[0]->quality, 0);
     }
 }

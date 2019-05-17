@@ -6,7 +6,7 @@ namespace App\Model;
 
 use App\Model\Product\AgedBrie;
 use App\Model\Product\BackstagePass;
-use App\Model\Product\StandardProduct;
+use App\Model\Product\Product;
 use App\Model\Product\Sulfuras;
 
 class ProductsFactory
@@ -21,7 +21,7 @@ class ProductsFactory
             case 'Sulfuras, Hand of Ragnaros':
                 return new Sulfuras($item);
             default:
-                return new StandardProduct($item);
+                return new Product($item);
         }
     }
 }
